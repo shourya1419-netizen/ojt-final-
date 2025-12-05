@@ -1,0 +1,15 @@
+<div class="card">
+    {% if self.image %}
+        {% include "wagtailimages/picture.html" with image=self.image class="card-img-top" %}
+    {% endif %}
+    <div class="card-body">
+        <h5 class="card-title">{{ self.title }}</h5>
+        <div class="card-text">{{ self.text }}</div>
+        
+        {% if self.button_page %}
+            <a href="{% pageurl self.button_page %}" class="btn btn-primary">Read more</a>
+        {% elif self.button_url %}
+            <a href="{{ self.button_url }}" class="btn btn-primary">Read more</a>
+        {% endif %}
+    </div>
+</div>

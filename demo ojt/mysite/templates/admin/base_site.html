@@ -1,0 +1,19 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="card">
+    {% image self.image fill-400x250 as img %}
+    <img src="{{ img.url }}" alt="{{ img.alt }}" class="card-img">
+    
+    <div class="card-content">
+        <h3>{{ self.title }}</h3>
+        <div class="card-text">
+            {{ self.text|richtext }}
+        </div>
+
+        {% if self.button_page %}
+            <a href="{% pageurl self.button_page %}" class="btn">Read More</a>
+        {% elif self.button_url %}
+            <a href="{{ self.button_url }}" class="btn">Read More</a>
+        {% endif %}
+    </div>
+</div>
