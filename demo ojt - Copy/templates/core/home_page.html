@@ -1,0 +1,127 @@
+{% load wagtailcore_tags static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- Global Styles --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            /* Animated gradient background for a dynamic look */
+            background: linear-gradient(-45deg, #141e30, #243b55, #1a2a6c, #b21f1f, #fdbb2d);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- Glassmorphism Card --- */
+        .glass-container {
+            /* Semi-transparent white background */
+            background: rgba(255, 255, 255, 0.1);
+            /* Blur effect for the background behind the card */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            transition: transform 0.3s ease;
+        }
+
+        .glass-container:hover {
+            transform: translateY(-5px);
+        }
+
+        /* --- Typography & Content --- */
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 2em;
+            opacity: 0.9;
+        }
+
+        .content-body {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 3em;
+            opacity: 0.85;
+        }
+
+        /* --- Admin Button --- */
+        .admin-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff6b6b, #f06595);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(240, 101, 149, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .admin-btn:hover {
+            background: linear-gradient(45deg, #fa5252, #e64980);
+            box-shadow: 0 6px 20px rgba(230, 73, 128, 0.6);
+            transform: scale(1.05);
+        }
+
+        /* --- Footer Branding --- */
+        .branding-footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-container">
+        <h1>{{ page.title }}</h1>
+        <div class="subtitle">Welcome to your new digital experience.</div>
+
+        <div class="content-body">
+            {{ page.body|richtext }}
+        </div>
+
+        <a href="/admin/" class="admin-btn">ADMIN UI PAGE</a>
+
+        <div class="branding-footer">
+            Crafted by <strong>Shourya & Nitin</strong>
+        </div>
+    </div>
+
+</body>
+</html>
